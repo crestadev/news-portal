@@ -1,0 +1,47 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+
+# ---- Django ----
+*.log
+*.pot
+*.pyc
+db.sqlite3
+# if you have migrations you don’t want to track initially:
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# User uploaded files
+/media/
+# Collected static files
+/staticfiles/
+
+# ---- Environment & secrets ----
+.env
+*.secret
+*.key
+/secrets.json
+
+# ---- Virtual environments ----
+venv/
+env/
+ENV/
+.venv/
+
+# ---- VS Code ----
+.vscode/
+*.code-workspace
+
+# ---- Windows OS files ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---- Others ----
+.DS_Store
