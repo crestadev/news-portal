@@ -1,0 +1,388 @@
+{% extends "newsportal/base.html" %}
+
+
+{% block content%}
+<div class="breaking-news-ticker bg-light py-2">
+    <div class="container">
+    <div class="d-flex align-items-center">
+        <span class="badge bg-danger me-2">BREAKING</span>
+        <marquee behavior="scroll"
+                direction="left"
+                onmouseover="this.stop();"
+                onmouseout="this.start();">
+        <a href="article.html" class="text-dark text-decoration-none me-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+        <a href="article.html" class="text-dark text-decoration-none me-4">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+        <a href="article.html" class="text-dark text-decoration-none me-4">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a>
+        </marquee>
+    </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+    <!-- Main News Section -->
+    <div class="col-lg-8">
+        <!-- Featured Story -->
+        <div class="card mb-4 featured-story-card shadow-sm">
+        <img src="https://placehold.co/800x400/28a745/ffffff?text=Featured+Story"
+                class="card-img-top"
+                alt="Featured Story" />
+        <div class="card-body">
+            <h2 class="card-title fw-bold">Featured Story Headline: Major Event Unfolds</h2>
+            <p class="card-text">
+            This is a summary of the main featured story. It provides a brief overview of the key points, encouraging readers to click through for the full article.
+            </p>
+            <a href="article.html" class="btn btn-success">Read More <i class="bi bi-arrow-right-short"></i></a>
+            <p class="card-text mt-2">
+            <small class="text-muted">Published: April 3, 2025</small>
+            </p>
+        </div>
+        </div>
+
+        <!-- Trending News Grid/List -->
+        <h3 class="mb-3 section-title">
+        <span>Trending News</span>
+        </h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!-- Trending Item 1 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm news-card">
+            <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+1"
+                    class="card-img-top"
+                    alt="Trending News 1" />
+            <div class="card-body">
+                <h5 class="card-title">Trending News Headline 1</h5>
+                <p class="card-text">Short description of the trending news article goes here.</p>
+                <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">April 3, 2025</small>
+            </div>
+            </div>
+        </div>
+        <!-- Trending Item 2 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm news-card">
+            <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+2"
+                    class="card-img-top"
+                    alt="Trending News 2" />
+            <div class="card-body">
+                <h5 class="card-title">Trending News Headline 2</h5>
+                <p class="card-text">Another short description for a different trending article.</p>
+                <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">April 2, 2025</small>
+            </div>
+            </div>
+        </div>
+        <!-- Trending Item 3 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm news-card">
+            <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+3"
+                    class="card-img-top"
+                    alt="Trending News 3" />
+            <div class="card-body">
+                <h5 class="card-title">Trending News Headline 3</h5>
+                <p class="card-text">This is the third trending news item description.</p>
+                <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">April 1, 2025</small>
+            </div>
+            </div>
+        </div>
+        <!-- Trending Item 4 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm news-card">
+            <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+4"
+                    class="card-img-top"
+                    alt="Trending News 4" />
+            <div class="card-body">
+                <h5 class="card-title">Trending News Headline 4</h5>
+                <p class="card-text">Description for the fourth trending news article.</p>
+                <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">March 31, 2025</small>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Weekly Top News Section -->
+        <h3 class="mt-5 mb-3 section-title"><span>Weekly Top News</span></h3>
+        <div class="list-group shadow-sm mb-5">
+        <a href="article.html" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="https://placehold.co/64x64/28a745/ffffff?text=W1" alt="thumb" width="64" height="64" class="rounded-circle flex-shrink-0">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+                <h6 class="mb-0">Top Story of the Week Headline</h6>
+                <p class="mb-0 opacity-75">Brief summary of the most important story this week...</p>
+            </div>
+            <small class="opacity-50 text-nowrap">3d ago</small>
+            </div>
+        </a>
+        <a href="article.html" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="https://placehold.co/64x64/6f42c1/ffffff?text=W2" alt="thumb" width="64" height="64" class="rounded-circle flex-shrink-0">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+                <h6 class="mb-0">Second Most Popular Weekly Story</h6>
+                <p class="mb-0 opacity-75">Summary of another highly read article from the past week.</p>
+            </div>
+            <small class="opacity-50 text-nowrap">5d ago</small>
+            </div>
+        </a>
+            <a href="article.html" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="https://placehold.co/64x64/fd7e14/ffffff?text=W3" alt="thumb" width="64" height="64" class="rounded-circle flex-shrink-0">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+                <h6 class="mb-0">Third Key Weekly Development</h6>
+                <p class="mb-0 opacity-75">Highlighting another significant event or story from the week.</p>
+            </div>
+            <small class="opacity-50 text-nowrap">1w ago</small>
+            </div>
+        </a>
+        </div>
+
+        <!-- Category Spotlight Section -->
+        <h3 class="mb-3 section-title"><span>Category Spotlight</span></h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <!-- Spotlight Item 1 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm news-card category-spotlight-card">
+                <div class="category-badge bg-danger">Technology</div>
+                <img src="https://placehold.co/400x250/dc3545/ffffff?text=Tech+Spotlight" class="card-img-top" alt="Tech Spotlight">
+                <div class="card-body">
+                    <h5 class="card-title">Major Tech Breakthrough Announced</h5>
+                    <p class="card-text">A quick look at a significant development in the tech world.</p>
+                    <a href="article.html" class="btn btn-outline-danger btn-sm">Read More</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">April 3, 2025</small>
+                </div>
+            </div>
+        </div>
+            <!-- Spotlight Item 2 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm news-card category-spotlight-card">
+                    <div class="category-badge bg-info">Sports</div>
+                <img src="https://placehold.co/400x250/0dcaf0/ffffff?text=Sports+Spotlight" class="card-img-top" alt="Sports Spotlight">
+                <div class="card-body">
+                    <h5 class="card-title">Championship Game Ends in Dramatic Fashion</h5>
+                    <p class="card-text">Recap of the thrilling conclusion to the recent sports final.</p>
+                    <a href="article.html" class="btn btn-outline-info btn-sm">Read More</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">April 2, 2025</small>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Video News Section -->
+        <h3 class="mt-5 mb-3 section-title"><span>Video News</span></h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!-- Video Item 1 -->
+        <div class="col">
+            <div class="card video-card shadow-sm">
+            <div class="video-thumbnail-wrapper">
+                <img src="https://placehold.co/400x225/007bff/ffffff?text=Video+1" class="card-img-top" alt="Video 1">
+                <i class="bi bi-play-circle-fill video-play-icon"></i>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">Breaking News Coverage: Live Report</h6>
+                <small class="text-muted">Duration: 5:32</small>
+            </div>
+            </div>
+        </div>
+        <!-- Video Item 2 -->
+            <div class="col">
+            <div class="card video-card shadow-sm">
+                <div class="video-thumbnail-wrapper">
+                <img src="https://placehold.co/400x225/6f42c1/ffffff?text=Video+2" class="card-img-top" alt="Video 2">
+                <i class="bi bi-play-circle-fill video-play-icon"></i>
+                </div>
+            <div class="card-body">
+                <h6 class="card-title">Interview with Key Political Figure</h6>
+                <small class="text-muted">Duration: 12:15</small>
+            </div>
+            </div>
+        </div>
+            <!-- Add more video items if needed -->
+        </div>
+
+        <!-- Editor's Picks Section -->
+        <h3 class="mt-5 mb-3 section-title"><span>Editor's Picks</span></h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <!-- Pick Item 1 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm news-card">
+                    <img src="https://placehold.co/400x250/198754/ffffff?text=Pick+1" class="card-img-top" alt="Editor's Pick 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Insightful Article Chosen by Editors</h5>
+                        <p class="card-text">Short description highlighting why this article was selected.</p>
+                        <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">April 1, 2025</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Pick Item 2 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm news-card">
+                    <img src="https://placehold.co/400x250/ffc107/333333?text=Pick+2" class="card-img-top" alt="Editor's Pick 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Another Noteworthy Story</h5>
+                        <p class="card-text">Description for the second editor's pick, focusing on its value.</p>
+                        <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">March 30, 2025</small>
+                    </div>
+                </div>
+            </div>
+                <!-- Add more picks if needed -->
+        </div>
+
+        <!-- Featured Photos Section -->
+        <h3 class="mt-5 mb-3 section-title"><span>Featured Photos</span></h3>
+        <div class="row row-cols-2 row-cols-lg-3 g-3">
+            <div class="col">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#photoModal1">
+                    <img src="https://placehold.co/400x300/20c997/ffffff?text=Photo+1" class="img-fluid rounded shadow-sm featured-photo" alt="Featured Photo 1">
+                </a>
+            </div>
+            <div class="col">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#photoModal1"> <!-- Example: Link to same modal -->
+                    <img src="https://placehold.co/400x300/6610f2/ffffff?text=Photo+2" class="img-fluid rounded shadow-sm featured-photo" alt="Featured Photo 2">
+                </a>
+            </div>
+            <div class="col">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#photoModal1">
+                    <img src="https://placehold.co/400x300/fd7e14/ffffff?text=Photo+3" class="img-fluid rounded shadow-sm featured-photo" alt="Featured Photo 3">
+                </a>
+            </div>
+                <div class="col d-none d-lg-block"> <!-- Hide on smaller screens -->
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#photoModal1">
+                    <img src="https://placehold.co/400x300/d63384/ffffff?text=Photo+4" class="img-fluid rounded shadow-sm featured-photo" alt="Featured Photo 4">
+                </a>
+            </div>
+                <div class="col d-none d-lg-block">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#photoModal1">
+                    <img src="https://placehold.co/400x300/dc3545/ffffff?text=Photo+5" class="img-fluid rounded shadow-sm featured-photo" alt="Featured Photo 5">
+                </a>
+            </div>
+                <div class="col d-none d-lg-block">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#photoModal1">
+                    <img src="https://placehold.co/400x300/ffc107/333333?text=Photo+6" class="img-fluid rounded shadow-sm featured-photo" alt="Featured Photo 6">
+                </a>
+            </div>
+        </div>
+        <!-- Example Photo Modal (Add one for each unique photo or use JS to populate) -->
+        <div class="modal fade" id="photoModal1" tabindex="-1" aria-labelledby="photoModal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="photoModal1Label">Featured Photo Caption</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                <img src="https://placehold.co/1200x800/20c997/ffffff?text=Photo+1+Large" class="img-fluid" alt="Featured Photo 1 Large">
+                <p class="p-3 small">Optional longer description for the photo can go here.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- End Example Photo Modal -->
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <div class="position-sticky sticky-sidebar-offset">
+        <!-- Adjust top based on navbar height -->
+        <!-- Most Popular -->
+        <div class="p-4 mb-3 bg-light rounded sidebar-widget shadow-sm">
+            <h4 class="fst-italic section-title">
+            <span>Most Popular</span>
+            </h4>
+            <ul class="list-unstyled mb-0 popular-list">
+            <!-- Changed ol to ul for flexibility -->
+            <li>
+                <img src="https://placehold.co/70x70/28a745/ffffff?text=P1"
+                    alt="Popular 1" />
+                <div>
+                    <a href="article.html" class="popular-title-link">Popular Article Title 1</a>
+                    <p class="popular-description">Short snippet describing the first popular article...</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://placehold.co/70x70/6c757d/ffffff?text=P2"
+                    alt="Popular 2" />
+                <div>
+                    <a href="article.html" class="popular-title-link">Second Most Read Story</a>
+                    <p class="popular-description">Brief summary for the second story goes here.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://placehold.co/70x70/17a2b8/ffffff?text=P3"
+                    alt="Popular 3" />
+                <div>
+                    <a href="article.html" class="popular-title-link">Another Engaging Headline</a>
+                    <p class="popular-description">This is the description for the third item.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://placehold.co/70x70/ffc107/333333?text=P4"
+                    alt="Popular 4" />
+                <div>
+                    <a href="article.html" class="popular-title-link">Top Story This Week</a>
+                    <p class="popular-description">A short summary for the fourth popular article.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://placehold.co/70x70/fd7e14/ffffff?text=P5"
+                    alt="Popular 5" />
+                <div>
+                    <a href="article.html" class="popular-title-link">Fifth Popular Article</a>
+                    <p class="popular-description">Description text for the fifth and final item shown.</p>
+                </div>
+            </li>
+            </ul>
+        </div>
+
+        <!-- Advertisement -->
+        <div class="p-4 mb-3 rounded sidebar-widget shadow-sm text-center">
+            <h4 class="fst-italic section-title">
+            <span>Advertisement</span>
+            </h4>
+            <img src="https://placehold.co/300x250/e8f5e9/333333?text=Ad+Banner"
+                class="img-fluid"
+                alt="Advertisement" />
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div id="newsletter-section"
+                class="p-4 mb-3 rounded sidebar-widget newsletter-widget shadow-sm">
+            <h4 class="fst-italic section-title">
+            <span>Subscribe</span>
+            </h4>
+            <p>Get the latest news delivered straight to your inbox.</p>
+            <form>
+            <div class="mb-3">
+                <label for="newsletterEmail" class="form-label visually-hidden">Email address</label>
+                <input type="email"
+                        class="form-control"
+                        id="newsletterEmail"
+                        placeholder="Enter your email" />
+            </div>
+            <button type="submit" class="btn btn-success w-100">Subscribe</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
