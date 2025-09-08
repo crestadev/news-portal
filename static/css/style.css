@@ -1,0 +1,1007 @@
+/* General Styles & Variables */
+:root {
+  --primary-green: #28a745; /* Bootstrap success green */
+  --light-green: #e8f5e9;
+  --dark-green: #1e7e34;
+  --accent-green: #5cb85c;
+  --text-color-light: #212529;
+  --text-color-dark: #f8f9fa;
+  --bg-light: #ffffff;
+  --bg-dark: #212529;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #343a40;
+  --border-color-light: #dee2e6;
+  --border-color-dark: #495057;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s ease;
+}
+
+[data-bs-theme="dark"] {
+  --primary-green: #34c759; /* Slightly brighter green for dark mode */
+  --light-green: #2c3e50; /* Darker background for contrast */
+  --dark-green: #27ae60;
+  --accent-green: #6fcf97;
+  --text-color-light: #f8f9fa;
+  --text-color-dark: #e9ecef;
+  --bg-light: #212529;
+  --bg-dark: #121212; /* Even darker background */
+  --card-bg-light: #343a40;
+  --card-bg-dark: #2c3e50;
+  --border-color-light: #495057;
+  --border-color-dark: #6c757d;
+}
+
+body {
+  font-family: "Poppins", sans-serif; /* Consider adding Google Font import */
+  background-color: var(--bg-light);
+  color: var(--text-color-light);
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+/* Elegant Navbar */
+.elegant-navbar {
+  background: linear-gradient(
+    to right,
+    var(--light-green),
+    #ffffff
+  ); /* Subtle gradient */
+  border-bottom: 1px solid var(--border-color-light);
+  box-shadow: var(--shadow-sm);
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+[data-bs-theme="dark"] .elegant-navbar {
+  background: linear-gradient(to right, #2c3e50, #343a40); /* Dark gradient */
+  border-bottom: 1px solid var(--border-color-dark);
+}
+
+.elegant-navbar .navbar-brand {
+  color: var(--primary-green);
+  font-size: 1.5rem;
+  transition: color var(--transition-speed);
+}
+.elegant-navbar .navbar-brand:hover {
+  color: var(--dark-green);
+}
+
+.elegant-navbar .nav-link {
+  color: var(--text-color-light);
+  font-weight: 500;
+  transition: color var(--transition-speed);
+  margin: 0 0.5rem;
+}
+
+.elegant-navbar .nav-link:hover,
+.elegant-navbar .nav-link.active {
+  color: var(--primary-green);
+}
+
+.elegant-navbar .dropdown-menu {
+  background-color: var(--card-bg-light);
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--shadow);
+}
+
+.elegant-navbar .dropdown-item {
+  color: var(--text-color-light);
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+.elegant-navbar .dropdown-item:hover {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+}
+
+[data-bs-theme="dark"] .elegant-navbar .dropdown-item:hover {
+  background-color: var(--border-color-dark);
+  color: var(--accent-green);
+}
+
+.elegant-navbar .form-control {
+  border-radius: 20px;
+  border-color: var(--border-color-light);
+  background-color: var(--bg-light);
+  color: var(--text-color-light);
+}
+[data-bs-theme="dark"] .elegant-navbar .form-control {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+  color: var(--text-color-dark);
+}
+
+.elegant-navbar .btn-outline-success {
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+  border-radius: 20px;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+.elegant-navbar .btn-outline-success:hover {
+  background-color: var(--primary-green);
+  color: #fff;
+}
+
+.elegant-navbar .form-check-label i {
+  color: var(--primary-green);
+  font-size: 1.2rem;
+}
+
+/* Breaking News Ticker */
+.breaking-news-ticker {
+  border-bottom: 1px solid var(--border-color-light);
+  background-color: var(--light-green) !important; /* Override Bootstrap */
+}
+[data-bs-theme="dark"] .breaking-news-ticker {
+  background-color: var(--card-bg-dark) !important;
+  border-bottom: 1px solid var(--border-color-dark);
+}
+.breaking-news-ticker marquee a {
+  color: var(--text-color-light) !important;
+  transition: color var(--transition-speed);
+}
+.breaking-news-ticker marquee a:hover {
+  color: var(--primary-green) !important;
+}
+[data-bs-theme="dark"] .breaking-news-ticker marquee a {
+  color: var(--text-color-dark) !important;
+}
+[data-bs-theme="dark"] .breaking-news-ticker marquee a:hover {
+  color: var(--accent-green) !important;
+}
+
+/* Section Title Styling */
+.section-title {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--primary-green);
+}
+
+.section-title span {
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-light); /* Match background */
+  padding-right: 10px;
+}
+[data-bs-theme="dark"] .section-title span {
+  background-color: var(--bg-light); /* Match dark background */
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-green);
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid var(--border-color-light);
+  transition: box-shadow var(--transition-speed),
+    transform var(--transition-speed);
+  background-color: var(--card-bg-light);
+  color: var(--text-color-light);
+}
+[data-bs-theme="dark"] .card {
+  border-color: var(--border-color-dark);
+  background-color: var(--card-bg-dark);
+  color: var(--text-color-dark);
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.featured-story-card {
+  border-left: 5px solid var(--primary-green);
+}
+
+.card-title {
+  color: var(--dark-green);
+  font-weight: 600;
+}
+[data-bs-theme="dark"] .card-title {
+  color: var(--accent-green);
+}
+
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid var(--border-color-light);
+}
+[data-bs-theme="dark"] .card-footer {
+  border-top: 1px solid var(--border-color-dark);
+}
+
+/* Latest News List Item Hover */
+.news-list-item {
+  transition: box-shadow var(--transition-speed),
+    background-color var(--transition-speed);
+}
+.news-list-item:hover {
+  box-shadow: var(--shadow);
+  background-color: var(--light-green); /* Subtle hover background */
+}
+[data-bs-theme="dark"] .news-list-item:hover {
+  background-color: var(--card-bg-dark); /* Adjust dark mode hover if needed */
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.05); /* Lighter shadow for dark */
+}
+
+/* Sidebar Styles */
+.sidebar-widget {
+  background-color: var(--card-bg-light);
+  border: 1px solid var(--border-color-light);
+  padding: 1.5rem !important; /* Override Bootstrap */
+}
+[data-bs-theme="dark"] .sidebar-widget {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+}
+
+.sidebar-widget h4 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+}
+
+.popular-list li {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically align items */
+  margin-bottom: 0.75rem; /* Increased spacing */
+  padding: 0.75rem 0.5rem; /* Add some padding all around */
+  border-bottom: 1px solid var(--border-color-light); /* Solid border */
+  transition: background-color var(--transition-speed); /* Add transition for hover */
+  border-radius: 5px; /* Slightly round the corners of the list item */
+}
+.popular-list li:hover {
+  background-color: var(--light-green); /* Subtle hover background */
+}
+[data-bs-theme="dark"] .popular-list li {
+  border-bottom-color: var(--border-color-dark); /* Adjust dark mode border */
+}
+[data-bs-theme="dark"] .popular-list li:hover {
+  background-color: var(--card-bg-dark); /* Darker hover for dark mode */
+}
+.popular-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.popular-list img {
+    width: 70px; /* Further increased size */
+    height: 70px; /* Further increased size */
+  object-fit: cover;
+  border-radius: 5px; /* Revert to slightly rounded corners */
+  margin-right: 15px; /* Increased space */
+  flex-shrink: 0; /* Prevent image from shrinking */
+  border: 2px solid var(--border-color-light); /* Optional: add a subtle border */
+}
+[data-bs-theme="dark"] .popular-list img {
+  border-color: var(--border-color-dark);
+}
+
+.popular-list li div { /* Style the div containing text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center text */
+  flex-grow: 1;
+}
+
+.popular-list .popular-title-link { /* Style the title link */
+  text-decoration: none;
+  color: var(--dark-green); /* Use a darker color for title */
+  font-weight: 600;
+  margin-bottom: 0.25rem; /* Space below title */
+  display: block; /* Ensure it takes full width */
+  transition: color var(--transition-speed);
+}
+.popular-list .popular-title-link:hover {
+  color: var(--primary-green);
+}
+[data-bs-theme="dark"] .popular-list .popular-title-link {
+  color: var(--accent-green);
+}
+[data-bs-theme="dark"] .popular-list .popular-title-link:hover {
+  color: var(--primary-green);
+}
+
+.popular-list .popular-description { /* Style the description */
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 0; /* Remove default paragraph margin */
+  line-height: 1.4;
+  /* Optional: Limit lines shown */
+  /* display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden; */
+}
+[data-bs-theme="dark"] .popular-list .popular-description {
+  color: var(--border-color-dark);
+}
+
+.popular-list a {
+  text-decoration: none;
+  color: var(--text-color-light);
+  transition: color var(--transition-speed);
+  flex-grow: 1; /* Allow text to take remaining space */
+}
+.popular-list a:hover {
+  color: var(--primary-green);
+}
+[data-bs-theme="dark"] .popular-list a {
+  color: var(--text-color-dark);
+}
+[data-bs-theme="dark"] .popular-list a:hover {
+  color: var(--accent-green);
+}
+
+.newsletter-widget {
+  /* Inherit background from .sidebar-widget or set explicitly */
+  background-color: var(--card-bg-light);
+  color: var(--text-color-light);
+  border-top: 3px solid var(--primary-green); /* Add highlight border */
+  padding-top: calc(1.5rem - 3px); /* Adjust padding to account for border */
+}
+[data-bs-theme="dark"] .newsletter-widget {
+  background-color: var(--card-bg-dark); /* Match dark sidebar widgets */
+  color: var(--text-color-dark);
+  border-top-color: var(--accent-green); /* Use accent green for dark border */
+}
+.newsletter-widget h4 {
+  color: var(--primary-green); /* Use standard title color */
+  /* Ensure it still uses section-title class if needed */
+}
+.newsletter-widget .form-control {
+  /* Use default form control styling */
+  background-color: var(--bg-light); /* Ensure correct background */
+}
+[data-bs-theme="dark"] .newsletter-widget .form-control {
+  /* Use default dark form control styling */
+  background-color: var(--card-bg-dark);
+  color: var(--text-color-dark);
+  border-color: var(--border-color-dark);
+}
+.newsletter-widget .btn-success {
+  /* Use standard success button colors */
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+  transition: background-color var(--transition-speed),
+    border-color var(--transition-speed);
+}
+.newsletter-widget .btn-success:hover {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+/* Footer Styles */
+.elegant-footer {
+  background-color: var(--light-green);
+  border-top: 1px solid var(--border-color-light);
+  color: var(--text-color-light);
+}
+[data-bs-theme="dark"] .elegant-footer {
+  background-color: var(--card-bg-dark);
+  border-top: 1px solid var(--border-color-dark);
+  color: var(--text-color-dark);
+}
+
+.elegant-footer a {
+  color: var(--primary-green);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.elegant-footer a:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
+}
+[data-bs-theme="dark"] .elegant-footer a:hover {
+  color: var(--accent-green);
+}
+
+.elegant-footer .social-icons a {
+  color: var(--primary-green);
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+.elegant-footer .social-icons a:hover {
+  color: var(--dark-green);
+  transform: scale(1.1);
+}
+[data-bs-theme="dark"] .elegant-footer .social-icons a:hover {
+  color: var(--accent-green);
+}
+
+/* Buttons */
+.btn-success {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+  transition: background-color var(--transition-speed),
+    border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+.btn-success:hover {
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn-outline-success {
+  color: var(--primary-green);
+  border-color: var(--primary-green);
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+.btn-outline-success:hover {
+  background-color: var(--primary-green);
+  color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .elegant-navbar .navbar-nav {
+    margin-top: 1rem;
+  }
+  .elegant-navbar .d-flex {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem; /* Space before dark mode toggle */
+  }
+  .sidebar-widget {
+    margin-top: 2rem; /* Add space when sidebar stacks */
+  }
+}
+/* Contact Page Enhancements */
+.contact-details-section {
+  padding: 20px 0; /* Remove side padding, adjust vertical */
+  /* Remove background, border, shadow from main container */
+  height: 100%; /* Match height of form column */
+}
+[data-bs-theme="dark"] .contact-details-section {
+  /* No specific dark mode background needed for container now */
+}
+.contact-details-section h3 {
+  color: var(--primary-green); /* Title color */
+  margin-bottom: 25px;
+  font-weight: 600;
+  padding-left: 10px; /* Add some padding if needed */
+}
+/* Style individual contact items as cards */
+.contact-details-section .contact-item {
+  display: flex;
+  align-items: center; /* Center align icon and text vertically */
+  background-color: var(--card-bg-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: 0.375rem; /* Standard Bootstrap border-radius */
+  padding: 1rem 1.25rem; /* Padding inside the card */
+  margin-bottom: 1rem; /* Space between cards */
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-speed);
+  border-left: 4px solid var(--primary-green); /* Accent border */
+}
+.contact-details-section .contact-item:hover {
+  box-shadow: var(--shadow);
+}
+[data-bs-theme="dark"] .contact-details-section .contact-item {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+  border-left-color: var(--accent-green);
+}
+
+.contact-details-section .contact-item i {
+  font-size: 1.5rem; /* Slightly larger icon */
+  margin-right: 1rem; /* Space between icon and text */
+  color: var(--primary-green); /* Icon color */
+  flex-shrink: 0; /* Prevent icon shrinking */
+}
+[data-bs-theme="dark"] .contact-details-section .contact-item i {
+  color: var(--accent-green);
+}
+
+.contact-details-section .contact-item a {
+  color: var(--primary-green); /* Link color */
+  text-decoration: none;
+  font-weight: 500;
+}
+.contact-details-section .contact-item a:hover {
+  text-decoration: underline;
+  color: var(--dark-green);
+}
+[data-bs-theme="dark"] .contact-details-section .contact-item a {
+  color: var(--accent-green);
+}
+[data-bs-theme="dark"] .contact-details-section .contact-item a:hover {
+  color: var(--primary-green);
+}
+
+/* Social links styling - keep separate from contact items */
+.contact-details-section .social-links-contact {
+  margin-top: 2rem; /* Add space above social links */
+  padding-left: 10px; /* Align with title padding */
+}
+.contact-details-section .social-links-contact i {
+  font-size: 1.7rem;
+  margin-right: 15px;
+  color: var(--primary-green); /* Theme color */
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+.contact-details-section .social-links-contact a:hover i {
+  color: var(--dark-green);
+  transform: scale(1.1);
+}
+[data-bs-theme="dark"] .contact-details-section .social-links-contact i {
+  color: var(--accent-green);
+}
+[data-bs-theme="dark"]
+  .contact-details-section
+  .social-links-contact
+  a:hover
+  i {
+  color: var(--primary-green);
+}
+/* Remove the old .contact-item styles that used border-bottom */
+/* Styles are now incorporated into the card-based approach above */
+.contact-details-section .contact-item div {
+  /* Keep flex-grow for text */
+  flex-grow: 1;
+}
+.contact-details-section .contact-item p, /* Keep text styling */
+.contact-details-section .contact-item a {
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color-light); /* Ensure text color is set */
+}
+[data-bs-theme="dark"] .contact-details-section .contact-item p,
+[data-bs-theme="dark"] .contact-details-section .contact-item a {
+  color: var(--text-color-dark);
+}
+/* Link specific styles are handled above */
+
+/* Pagination Styling */
+.pagination .page-link {
+  color: var(--primary-green); /* Green link color */
+  border-color: var(--light-green); /* Lighter border */
+}
+.pagination .page-link:hover {
+  background-color: var(--light-green); /* Light green background on hover */
+  color: var(--dark-green);
+  border-color: var(--accent-green);
+}
+.pagination .page-item.active .page-link {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+  color: #fff; /* White text on active */
+}
+.pagination .page-item.active .page-link:hover {
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);
+}
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: #e9ecef;
+  border-color: var(--border-color-light);
+}
+
+[data-bs-theme="dark"] .pagination .page-link {
+  background-color: var(--card-bg-dark);
+  color: var(--accent-green);
+  border-color: var(--border-color-dark);
+}
+[data-bs-theme="dark"] .pagination .page-link:hover {
+  background-color: var(--border-color-dark);
+  color: var(--primary-green);
+}
+[data-bs-theme="dark"] .pagination .page-item.active .page-link {
+  background-color: var(--accent-green);
+  border-color: var(--accent-green);
+  color: var(--bg-dark); /* Dark text on active dark */
+}
+[data-bs-theme="dark"] .pagination .page-item.active .page-link:hover {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+}
+[data-bs-theme="dark"] .pagination .page-item.disabled .page-link {
+  color: #adb5bd;
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+}
+
+@media (max-width: 767.98px) {
+  .featured-story-card .card-title {
+    font-size: 1.5rem;
+  }
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Add Google Font Import (Optional - place at the top) */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
+
+/* === Styles moved from article.html === */
+
+/* Additional styles specific to article page */
+.article-header img {
+    width: 100%;
+    max-height: 500px;
+    /* Limit image height */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-green);
+}
+
+[data-bs-theme="dark"] .article-title {
+    color: var(--accent-green);
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+    /* Muted color */
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+[data-bs-theme="dark"] .article-meta {
+    color: var(--border-color-dark);
+}
+
+.article-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.article-meta i {
+    margin-right: 0.3rem;
+}
+
+.author-profile img {
+    width: 50px; /* Adjusted size from original internal style */
+    height: 50px; /* Adjusted size from original internal style */
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.article-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.3rem;
+    margin: 1rem 0;
+}
+
+.article-content blockquote {
+    border-left: 4px solid var(--primary-green);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #6c757d;
+}
+
+[data-bs-theme="dark"] .article-content blockquote {
+    color: var(--border-color-dark);
+}
+
+.article-tags a {
+    display: inline-block;
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    padding: 0.3rem 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.article-tags a:hover {
+    background-color: var(--primary-green);
+    color: #fff;
+}
+
+[data-bs-theme="dark"] .article-tags a {
+    background-color: var(--card-bg-dark);
+    color: var(--accent-green);
+    border: 1px solid var(--border-color-dark);
+}
+
+[data-bs-theme="dark"] .article-tags a:hover {
+    background-color: var(--accent-green);
+    color: var(--bg-dark);
+}
+
+.related-articles .card {
+    margin-bottom: 1rem;
+}
+
+.comments-section .card { /* This targets the comment form card */
+    background-color: var(--light-green);
+    border: 1px solid var(--border-color-light);
+}
+ [data-bs-theme="dark"] .comments-section .card {
+     background-color: var(--card-bg-dark);
+     border: 1px solid var(--border-color-dark);
+ }
+.comment { /* Styles for individual comments */
+    border-bottom: 1px dashed var(--border-color-light);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+ [data-bs-theme="dark"] .comment {
+     border-bottom: 1px dashed var(--border-color-dark);
+ }
+.comment:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.comment img { /* Style for user avatar in comments */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+/* === End styles moved from article.html === */
+
+
+/* === Styles moved from about.html === */
+.about-section {
+    padding: 60px 0;
+    background-color: var(--light-green);
+    /* Light green background for this section */
+}
+
+[data-bs-theme="dark"] .about-section {
+    background-color: var(--card-bg-dark);
+}
+
+.about-section h2 {
+    color: var(--primary-green);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* About Page Specific Styles */
+.about-mission-title {
+    color: var(--dark-green);
+}
+[data-bs-theme="dark"] .about-mission-title {
+     color: var(--accent-green); /* Adjust for dark mode if needed */
+}
+
+/* Contact Page Specific Styles */
+.contact-form-title {
+    color: var(--dark-green);
+}
+[data-bs-theme="dark"] .contact-form-title {
+     color: var(--accent-green); /* Adjust for dark mode */
+}
+
+.contact-details-hr {
+    border-color: rgba(255, 255, 255, 0.5) !important; /* Use !important to override Bootstrap if needed */
+}
+[data-bs-theme="dark"] .contact-details-hr {
+     border-color: rgba(255, 255, 255, 0.3) !important; /* Adjust dark mode border */
+}
+
+.contact-follow-title {
+    color: #28a745; /* White text on gradient */
+    font-weight: 800;
+}
+[data-bs-theme="dark"] .contact-follow-title {
+     color: var(--text-color-dark); /* Light text on dark gradient */
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--primary-green);
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm); /* Added from original internal style */
+}
+/* === End styles moved from about.html === */
+
+
+/* === Styles moved from contact.html === */
+.contact-form-section {
+    padding: 40px;
+    background-color: var(--card-bg-light);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color-light);
+}
+
+[data-bs-theme="dark"] .contact-form-section {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-color-dark);
+}
+/* Note: Styles for .contact-details-section and .social-links-contact were already moved/refined */
+/* === End styles moved from contact.html === */
+
+
+/* === Styles for Category/Tag List Pages === */
+.list-item-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-left: 4px solid var(--primary-green);
+}
+.list-item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+.list-item-card .card-body {
+    padding: 1.5rem;
+}
+.list-item-card .card-title a {
+    text-decoration: none;
+    color: var(--dark-green);
+    font-weight: 600;
+}
+ .list-item-card .card-title a:hover {
+     color: var(--primary-green);
+ }
+[data-bs-theme="dark"] .list-item-card .card-title a {
+     color: var(--accent-green);
+}
+ [data-bs-theme="dark"] .list-item-card .card-title a:hover {
+     color: var(--primary-green);
+ }
+.list-item-card .card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+ [data-bs-theme="dark"] .list-item-card .card-text {
+     color: var(--border-color-dark);
+ }
+/* === End Styles for Category/Tag List Pages === */
+
+
+/* === Weekly Top News (List Group) === */
+.list-group-item {
+    transition: background-color 0.2s ease-in-out;
+}
+.list-group-item-action:hover, .list-group-item-action:focus {
+    background-color: var(--light-green);
+    color: var(--text-color-light);
+}
+.list-group-item h6 {
+    color: var(--dark-green);
+    font-weight: 600;
+}
+[data-bs-theme="dark"] .list-group-item {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-color-dark);
+    color: var(--text-color-dark);
+}
+[data-bs-theme="dark"] .list-group-item-action:hover,
+[data-bs-theme="dark"] .list-group-item-action:focus {
+    background-color: var(--border-color-dark); /* Slightly lighter dark background */
+}
+[data-bs-theme="dark"] .list-group-item h6 {
+    color: var(--accent-green);
+}
+
+
+/* === Category Spotlight === */
+.category-spotlight-card {
+    position: relative;
+    overflow: hidden; /* Hide overflow for badge */
+}
+.category-badge {
+    position: absolute;
+    top: 10px;
+    left: -30px; /* Start off-screen */
+    background-color: var(--primary-green); /* Default badge color */
+    color: #fff;
+    padding: 5px 40px; /* Wide padding */
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1; /* Ensure badge is above image */
+}
+/* Specific badge colors (examples) */
+.category-badge.bg-danger { background-color: #dc3545 !important; }
+.category-badge.bg-info { background-color: #0dcaf0 !important; }
+.category-badge.bg-warning { background-color: #ffc107 !important; color: #333 !important; }
+.category-badge.bg-success { background-color: var(--primary-green) !important; }
+
+/* Adjust card body padding if badge overlaps */
+.category-spotlight-card .card-body {
+    padding-top: 1.5rem; /* Ensure space below potential badge overlap */
+}
+/* Adjust outline button colors to match badges */
+.category-spotlight-card .btn-outline-danger { --bs-btn-color: #dc3545; --bs-btn-border-color: #dc3545; --bs-btn-hover-bg: #dc3545; --bs-btn-hover-border-color: #dc3545; --bs-btn-active-bg: #dc3545; --bs-btn-active-border-color: #dc3545; --bs-btn-hover-color: #fff; --bs-btn-active-color: #fff; }
+.category-spotlight-card .btn-outline-info { --bs-btn-color: #0dcaf0; --bs-btn-border-color: #0dcaf0; --bs-btn-hover-bg: #0dcaf0; --bs-btn-hover-border-color: #0dcaf0; --bs-btn-active-bg: #0dcaf0; --bs-btn-active-border-color: #0dcaf0; --bs-btn-hover-color: #000; --bs-btn-active-color: #000; }
+/* Add more outline button overrides if needed */
+
+
+/* === Video News Section === */
+.video-card .card-body {
+    padding: 0.75rem; /* Smaller padding for video cards */
+}
+.video-card .card-title {
+    font-size: 1rem; /* Slightly smaller title */
+    margin-bottom: 0.25rem;
+}
+.video-thumbnail-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+.video-thumbnail-wrapper::before { /* Dark overlay on hover */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+.video-thumbnail-wrapper:hover::before {
+    opacity: 1;
+}
+.video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem; /* Large play icon */
+    color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    pointer-events: none; /* Allow clicks to pass through to wrapper */
+}
+.video-thumbnail-wrapper:hover .video-play-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1); /* Slight scale effect on hover */
+}
+
+
+/* === Featured Photos Section === */
+.featured-photo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+.featured-photo:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+    opacity: 0.9;
+}
+/* Removed extra closing brace */
+
+
+
+/* Sticky Sidebar Offset */
+.sticky-sidebar-offset {
+    top: 6rem; /* Adjust based on navbar height */
+}
+
