@@ -12,11 +12,49 @@
         <div class="col-lg-8">
 
             {% include "newsportal/home/left/featured_story.html" %}
-            {% include "newsportal/home/trending_news.html" %}
-            {% include "newsportal/home/weekly_top_news.html" %}
+            {% include "newsportal/home/left/trending_news.html" %}
+            {% include "newsportal/home/left/weekly_top_news.html" %}
         </div>
 
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <div class="position-sticky sticky-sidebar-offset">
+                {% include "newsportal/home/right/latest_news.html" %}
 
+              <!-- Advertisement -->
+              <div class="p-4 mb-3 rounded sidebar-widget shadow-sm text-center">
+                <h4 class="fst-italic section-title">
+                  <span>Advertisement</span>
+                </h4>
+                <img src="https://placehold.co/300x250/e8f5e9/333333?text=Ad+Banner"
+                     class="img-fluid"
+                     alt="Advertisement" />
+              </div>
+  
+              <!-- Newsletter Subscription -->
+              <div id="newsletter-section"
+                   class="p-4 mb-3 rounded sidebar-widget newsletter-widget shadow-sm">
+                <h4 class="fst-italic section-title">
+                  <span>Subscribe</span>
+                </h4>
+                <p>Get the latest news delivered straight to your inbox.</p>
+                <form>
+                  <div class="mb-3">
+                    <label for="newsletterEmail" class="form-label visually-hidden">Email address</label>
+                    <input type="email"
+                           class="form-control"
+                           id="newsletterEmail"
+                           placeholder="Enter your email" />
+                  </div>
+                  <button type="submit" class="btn btn-success w-100">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    {% endblock %}
 
 
  
