@@ -2,23 +2,9 @@
 
 
 {% block content%}
-<div class="breaking-news-ticker bg-light py-2">
-    <div class="container">
-    <div class="d-flex align-items-center">
-        <span class="badge bg-danger me-2">BREAKING</span>
-        <marquee behavior="scroll"
-                direction="left"
-                onmouseover="this.stop();"
-                onmouseout="this.start();">
-        <a href="article.html" class="text-dark text-decoration-none me-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-        <a href="article.html" class="text-dark text-decoration-none me-4">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-        <a href="article.html" class="text-dark text-decoration-none me-4">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a>
-        </marquee>
-    </div>
-    </div>
-</div>
+    {% include "newsportal/home/breaking_news.html" %}
 
-<div class="container mt-4">
+ <div class="container mt-4">
     <div class="row">
     <!-- Main News Section -->
     <div class="col-lg-8">
@@ -384,5 +370,5 @@
         </div>
     </div>
     </div>
-</div>
+ </div>
 {% endblock %}
