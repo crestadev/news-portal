@@ -1,3 +1,6 @@
+from django.utils import timezone
+from datetime import timedelta
+
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
@@ -15,12 +18,12 @@ class HomePageView(TemplateView):
             .first()
         ) 
 
-        context("popular_posts") = Post.objects.filter(
+        context["popular_posts"] = Post.objects.filter(
             published_at__isnull=False, status="active"
-        .order_by("-published_at")[:5]
+        ).order_by("-published_at")[:5]
 
         one_week_ago = timezone.now() - timedelta(days=7)
-        context("weekly_top_posts") = Post.objects.filter(
+        context["weekly_top_posts"] = Post.objects.filter(
             published_at__isnull=False, status="active", published_at__gte = one_week_ago
         ).order_by("-published_at", "-views_count")[:5]
 
