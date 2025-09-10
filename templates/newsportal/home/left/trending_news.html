@@ -3,68 +3,24 @@
 <span>Trending News</span>
 </h3>
 <div class="row row-cols-1 row-cols-md-2 g-4">
-<!-- Trending Item 1 -->
-<div class="col">
-    <div class="card h-100 shadow-sm news-card">
-    <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+1"
-            class="card-img-top"
-            alt="Trending News 1" />
-    <div class="card-body">
-        <h5 class="card-title">Trending News Headline 1</h5>
-        <p class="card-text">Short description of the trending news article goes here.</p>
-        <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
+ {% for post in trending_news %}
+    <div class="col">
+        <div class="card h-100 shadow-sm news-card">
+        <img src="{{ post.featured_image.url }}"
+                class="card-img-top"
+                alt="Trending News 1"
+                width="400"
+                height="250" />
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.content|striptags|truncatewords:20 }}</p>
+            <a href="{% url 'post-detail' post.pk %}"
+                class="btn btn-outline-success btn-sm">Read More</a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{ post.published_at|date:"F j, Y" }}</small>
+        </div>
+        </div>
     </div>
-    <div class="card-footer">
-        <small class="text-muted">April 3, 2025</small>
+ {% endfor %}
     </div>
-    </div>
-</div>
-<!-- Trending Item 2 -->
-<div class="col">
-    <div class="card h-100 shadow-sm news-card">
-    <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+2"
-            class="card-img-top"
-            alt="Trending News 2" />
-    <div class="card-body">
-        <h5 class="card-title">Trending News Headline 2</h5>
-        <p class="card-text">Another short description for a different trending article.</p>
-        <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
-    </div>
-    <div class="card-footer">
-        <small class="text-muted">April 2, 2025</small>
-    </div>
-    </div>
-</div>
-<!-- Trending Item 3 -->
-<div class="col">
-    <div class="card h-100 shadow-sm news-card">
-    <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+3"
-            class="card-img-top"
-            alt="Trending News 3" />
-    <div class="card-body">
-        <h5 class="card-title">Trending News Headline 3</h5>
-        <p class="card-text">This is the third trending news item description.</p>
-        <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
-    </div>
-    <div class="card-footer">
-        <small class="text-muted">April 1, 2025</small>
-    </div>
-    </div>
-</div>
-<!-- Trending Item 4 -->
-<div class="col">
-    <div class="card h-100 shadow-sm news-card">
-    <img src="https://placehold.co/400x250/6c757d/ffffff?text=Trending+4"
-            class="card-img-top"
-            alt="Trending News 4" />
-    <div class="card-body">
-        <h5 class="card-title">Trending News Headline 4</h5>
-        <p class="card-text">Description for the fourth trending news article.</p>
-        <a href="article.html" class="btn btn-outline-success btn-sm">Read More</a>
-    </div>
-    <div class="card-footer">
-        <small class="text-muted">March 31, 2025</small>
-    </div>
-    </div>
-</div>
-</div>
