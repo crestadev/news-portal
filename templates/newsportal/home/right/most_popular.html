@@ -5,46 +5,18 @@
     <span>Most Popular</span>
     </h4>
     <ul class="list-unstyled mb-0 popular-list">
-    <!-- Changed ol to ul for flexibility -->
+
+    {% for post in popular_posts %}
     <li>
-        <img src="https://placehold.co/70x70/28a745/ffffff?text=P1"
+        <img src="{{ post.featured_image.url }}"
+            width="70"
+            height="70"
             alt="Popular 1" />
         <div>
-            <a href="article.html" class="popular-title-link">Popular Article Title 1</a>
-            <p class="popular-description">Short snippet describing the first popular article...</p>
+            <a href="article.html" class="popular-title-link">{{ post.title }}</a>
+            <p class="popular-description">{{ post.conten|truncatechars:100 }}</p>
         </div>
     </li>
-    <li>
-        <img src="https://placehold.co/70x70/6c757d/ffffff?text=P2"
-            alt="Popular 2" />
-        <div>
-            <a href="article.html" class="popular-title-link">Second Most Read Story</a>
-            <p class="popular-description">Brief summary for the second story goes here.</p>
-        </div>
-    </li>
-    <li>
-        <img src="https://placehold.co/70x70/17a2b8/ffffff?text=P3"
-            alt="Popular 3" />
-        <div>
-            <a href="article.html" class="popular-title-link">Another Engaging Headline</a>
-            <p class="popular-description">This is the description for the third item.</p>
-        </div>
-    </li>
-    <li>
-        <img src="https://placehold.co/70x70/ffc107/333333?text=P4"
-            alt="Popular 4" />
-        <div>
-            <a href="article.html" class="popular-title-link">Top Story This Week</a>
-            <p class="popular-description">A short summary for the fourth popular article.</p>
-        </div>
-    </li>
-    <li>
-        <img src="https://placehold.co/70x70/fd7e14/ffffff?text=P5"
-            alt="Popular 5" />
-        <div>
-            <a href="article.html" class="popular-title-link">Fifth Popular Article</a>
-            <p class="popular-description">Description text for the fifth and final item shown.</p>
-        </div>
-    </li>
+    {% endfor %}
     </ul>
 </div>
