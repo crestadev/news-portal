@@ -1,16 +1,18 @@
 <!-- Featured Story -->
 <div class="card mb-4 featured-story-card shadow-sm">
-    <img src="https://placehold.co/800x400/28a745/ffffff?text=Featured+Story"
+    <img src="{{ featured_post.featured_image.url }}"
+        width="800"
+        height="400"
         class="card-img-top"
         alt="Featured Story" />
     <div class="card-body">
     <h2 class="card-title fw-bold">Featured Story Headline: Major Event Unfolds</h2>
     <p class="card-text">
-        This is a summary of the main featured story. It provides a brief overview of the key points, encouraging readers to click through for the full article.
+        {{ featured_post.content|truncatechars:150 }}
     </p>
     <a href="article.html" class="btn btn-success">Read More <i class="bi bi-arrow-right-short"></i></a>
     <p class="card-text mt-2">
-        <small class="text-muted">Published: April 3, 2025</small>
+        <small class="text-muted">Published: {{ featured_post.published_at|date:"F j, Y"}}</small>
     </p>
     </div>
 </div>
