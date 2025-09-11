@@ -4,7 +4,7 @@ from datetime import timedelta
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-from newspaper.models import Post
+from newspaper.models import Advertisement, Post
 
 # Create your views here.
 class HomePageView(TemplateView):
@@ -30,6 +30,10 @@ class HomePageView(TemplateView):
         context["breaking_news"] = Post.objects.filter(
             published_at__isnull=False, status="active", is_breaking_news=True
         ).order_by("-published_at")[:3]
+
+        context["advertisement"] = (
+            Advertisement.objects.all().order_by("-created_at").first()
+        )
 
 
         return context
