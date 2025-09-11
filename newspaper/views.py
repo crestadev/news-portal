@@ -31,6 +31,10 @@ class HomePageView(TemplateView):
             published_at__isnull=False, status="active", is_breaking_news=True
         ).order_by("-published_at")[:3]
 
+        context["trending_news"] = Post.objects.filter(
+            publushed_at__isnull=False, status="active"
+        ).order_by("-published_at")[:4]
+
         context["advertisement"] = (
             Advertisement.objects.all().order_by("-created_at").first()
         )
