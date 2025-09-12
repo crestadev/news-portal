@@ -42,15 +42,14 @@ class HomePageView(TemplateView):
 
         return context
     
-    class PostListView(ListView):
-        model = Post
-        template_name = "newsportal/list/list.html"
-        context_object_name = "posts"
-        paginate_by = 1
+class PostListView(ListView):
+    model = Post
+    template_name = "newsportal/list/list.html"
+    context_object_name = "posts"
+    paginate_by = 1
 
-        def get_queryset(self):
-            return Post.objects.filter(
-                published_at__isnull=False, status="active"
-            ).order_by("-published_at")
-        
+    def get_queryset(self):
+        return Post.objects.filter(
+            published_at__isnull=False, status="active"
+        ).order_by("-published_at")
     
