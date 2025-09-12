@@ -2,9 +2,16 @@
           <!-- Pagination -->
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+
+
+            {% if page_obj.has_previous %}
+              <li class="page-item ">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
               </li>
+
+            {% endif %}
+
+
               <li class="page-item active" aria-current="page">
                 <a class="page-link" href="#">1</a>
               </li>
@@ -14,8 +21,11 @@
               <li class="page-item">
                 <a class="page-link" href="#">3</a>
               </li>
+
+            {% if page_obj.has_next %}
               <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
               </li>
+            {% endif %}
             </ul>
           </nav>
