@@ -2,7 +2,7 @@ from django.utils import timezone
 from datetime import timedelta
 
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from newspaper.models import Advertisement, Post
 
