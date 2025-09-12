@@ -32,7 +32,7 @@ class HomePageView(TemplateView):
         ).order_by("-published_at")[:3]
 
         context["trending_news"] = Post.objects.filter(
-            publushed_at__isnull=False, status="active"
+            published_at__isnull=False, status="active"
         ).order_by("-published_at")[:4]
 
         context["advertisement"] = (
@@ -41,4 +41,16 @@ class HomePageView(TemplateView):
 
 
         return context
+    
+    class PostListView(ListView):
+        model = Post
+        template_name = "newsportal/list/list.html"
+        context_object_name = "posts"
+        paginate_by = 1
+
+        def get_queryset(self):
+            return Post.objects.filter(
+                published_at__isnull=False, status="active"
+            ).order_by("-published_at")
+        
     
