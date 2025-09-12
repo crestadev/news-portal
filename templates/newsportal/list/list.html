@@ -11,6 +11,9 @@
       <div class="row">
         <div class="col-lg-8">
 
+            {% include "newsportal/list/left/post_list.html" %}
+            {% include "newsportal/list/left/pagination.html" %}
+          </div>
         <div class="col-lg-4">
           <div class="position-sticky sticky-sidebar-offset">
             {% include "newsportal/home/right/most_popular.html" %}
@@ -19,6 +22,7 @@
         </div>
       </div>
     </div>
+  </div
 
 
 {% endblock content %}
