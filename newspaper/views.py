@@ -1,7 +1,6 @@
 from django.utils import timezone
 from datetime import timedelta
 
-from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 
 from newspaper.models import Advertisement, Post
@@ -79,7 +78,7 @@ class PostDetailView(SidebarMixin, DetailView):
          current_post.views_count += 1
          current_post.save()
 
-         context["related_posts"] = (
+         context["related_articles"] = (
               Post.objects.filter(
                    published_at__isnull=False,
                    status="active",
@@ -88,6 +87,5 @@ class PostDetailView(SidebarMixin, DetailView):
               .exclude(id=self.object.id)
               .order_by("-published_at", "-views_count")[:2]
          )
-         context["form"] = self.get_form()
          return context
         
