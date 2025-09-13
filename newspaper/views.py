@@ -2,7 +2,7 @@ from django.utils import timezone
 from datetime import timedelta
 
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from newspaper.models import Advertisement, Post
 
@@ -67,5 +67,13 @@ class PostListView(ListView):
 
         return context
     
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "newsportal/detail/detail.html"
+    context_object_name = "post"
 
+    def get_queryset(self):
+        query = super().get_queryset() 
+        query = query.filter(published_at__isnull=False, status="active")
+        return query
     
