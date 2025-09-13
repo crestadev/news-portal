@@ -72,3 +72,22 @@ class PostDetailView(SidebarMixin, DetailView):
         query = query.filter(published_at__isnull=False, status="active")
         return query
     
+    def get_context_data(self, **kwargs):
+         context =  super().get_context_data(**kwargs)
+    
+         current_post = self.object
+         current_post.views_count += 1
+         current_post.save()
+
+         context["related_posts"] = (
+              Post.objects.filter(
+                   published_at__isnull=False,
+                   status="active",
+                   category=self.object.category,
+              )
+              .exclude(id=self.object.id)
+              .order_by("-published_at", "-views_count")[:2]
+         )
+         context["form"] = self.get_form()
+         return context
+        
