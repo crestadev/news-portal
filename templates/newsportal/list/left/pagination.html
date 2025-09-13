@@ -11,16 +11,11 @@
 
             {% endif %}
 
-
-              <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">1</a>
+            {% for i in page_obj.paginator.page_range %}
+              <li class="page-item {% if i == page_obj.number %}active{% endif %}" aria-current="page">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
+            {% endfor %}
 
             {% if page_obj.has_next %}
               <li class="page-item">
