@@ -17,7 +17,7 @@
         <p class="card-text">
           <small class="text-muted">Published: {{ post.published_at|date:"F j, Y" }}</small>
         </p>
-        <a href="#" class="btn btn-outline-success btn-sm">Read More</a>
+        <a href="{% url 'post-detail' post.pk %}" class="btn btn-outline-success btn-sm">Read More</a>
       </div>
     </div>
   </div>
