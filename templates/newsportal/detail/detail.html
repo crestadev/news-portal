@@ -1,0 +1,120 @@
+{% extends "newsportal/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-lg-8">
+
+        <!-- Related Articles Section -->
+        <section class="related-articles mt-5">
+          <h3 class="mb-4 section-title">
+            <span>Related Articles</span>
+          </h3>
+          <div class="row row-cols-1 row-cols-md-2 g-4">
+            <!-- Related Item 1 -->
+            <div class="col">
+              <div class="card h-100 shadow-sm news-card">
+                <img src="https://placehold.co/400x250/6c757d/ffffff?text=Related+1"
+                     class="card-img-top"
+                     alt="Related News 1" />
+                <div class="card-body">
+                  <h5 class="card-title">Related Story Headline 1</h5>
+                  <a href="article.html" class="btn btn-outline-success btn-sm mt-2">Read More</a>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">April 1, 2025</small>
+                </div>
+              </div>
+            </div>
+            <!-- Related Item 2 -->
+            <div class="col">
+              <div class="card h-100 shadow-sm news-card">
+                <img src="https://placehold.co/400x250/17a2b8/ffffff?text=Related+2"
+                     class="card-img-top"
+                     alt="Related News 2" />
+                <div class="card-body">
+                  <h5 class="card-title">Another Related Article</h5>
+                  <a href="article.html" class="btn btn-outline-success btn-sm mt-2">Read More</a>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">March 30, 2025</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section mt-5">
+          <h3 class="mb-4 section-title">
+            <span>User Comments (3)</span>
+          </h3>
+          <div class="card p-4 shadow-sm mb-4">
+            <!-- Comment Form -->
+            <form>
+              <div class="mb-3">
+                <label for="commentText" class="form-label">Leave a Comment</label>
+                <textarea class="form-control"
+                          id="commentText"
+                          rows="4"
+                          placeholder="Write your comment here..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-success">Post Comment</button>
+            </form>
+          </div>
+
+          <!-- Existing Comments -->
+          <div class="existing-comments">
+            <div class="comment d-flex mb-3">
+              <img src="https://placehold.co/50/ffc107/333333?text=U1"
+                   alt="User 1"
+                   class="me-3" />
+              <div>
+                <h6 class="mb-1 fw-bold">
+                  User One <small class="text-muted fw-normal">- 2 hours ago</small>
+                </h6>
+                <p>This is a great analysis! Really appreciate the detailed breakdown.</p>
+              </div>
+            </div>
+            <div class="comment d-flex mb-3">
+              <img src="https://placehold.co/50/0dcaf0/ffffff?text=U2"
+                   alt="User 2"
+                   class="me-3" />
+              <div>
+                <h6 class="mb-1 fw-bold">
+                  User Two <small class="text-muted fw-normal">- 1 day ago</small>
+                </h6>
+                <p>Interesting perspective. I hadn't considered that angle before. Thanks for sharing!</p>
+              </div>
+            </div>
+            <div class="comment d-flex">
+              <img src="https://placehold.co/50/fd7e14/ffffff?text=U3"
+                   alt="User 3"
+                   class="me-3" />
+              <div>
+                <h6 class="mb-1 fw-bold">
+                  User Three <small class="text-muted fw-normal">- 3 days ago</small>
+                </h6>
+                <p>Does anyone have more information on the source mentioned in the third paragraph?</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="position-sticky sticky-sidebar-offset">
+            <div class="position-sticky sticky-sidebar-offset">
+                {% include "newsportal/home/right/most_popular.html" %}
+                {% include "newsportal/home/right/advertisment.html" %}
+                {% include "newsportal/home/right/newsletter.html" %}
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+
