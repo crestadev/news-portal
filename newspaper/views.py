@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from datetime import timedelta
 
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from newspaper.forms import ContactForm
@@ -106,12 +106,12 @@ class ContactCreateView(SuccessMessageMixin, CreateView):
     model = Contact
     template_name = "newsportal/contact.html"
     form_class = ContactForm
-    succes_url = reverse_lazy("contact")
+    success_url = reverse_lazy("contact")
     success_message = "Your message has been sent successfully"
 
     def form_invalid(self, form):
         messages.error(
             self.request,
-            "There was an error sending yout message. Please check the form.",
+            "There was an error sending your message. Please check the form.",
         )
         return super().form_invalid(form)

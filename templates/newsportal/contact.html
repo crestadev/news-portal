@@ -1,0 +1,86 @@
+{% extends "newsportal/base.html" %}
+
+
+{% block content %}
+    <!-- Main Content Area -->
+    <div class="container mt-5 mb-5">
+        <h1 class="mb-5 text-center section-title">
+          <span>Get In Touch</span>
+        </h1>
+  
+        <div class="row g-4">
+          <!-- Contact Form -->
+          <div class="col-lg-7">
+            <div class="contact-form-section">
+              <h3 class="mb-4 contact-form-title">Send Us a Message</h3>
+              <form>
+                <div class="mb-3">
+                  <label for="contactName" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="contactName" required />
+                </div>
+                <div class="mb-3">
+                  <label for="contactEmail" class="form-label">Your Email</label>
+                  <input type="email" class="form-control" id="contactEmail" required />
+                </div>
+                <div class="mb-3">
+                  <label for="contactSubject" class="form-label">Subject</label>
+                  <input type="text" class="form-control" id="contactSubject" />
+                </div>
+                <div class="mb-3">
+                  <label for="contactMessage" class="form-label">Message</label>
+                  <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg">Send Message</button>
+              </form>
+            </div>
+          </div>
+  
+          <!-- Contact Details & Social Links -->
+          <div class="col-lg-5">
+            <div class="contact-form-section contact-details-section">
+              <h3 class="text-center">Contact Information</h3>
+              <div class="contact-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                  123 News Street, Suite 456
+                  <br />
+                  Metropolis, NY 10001, USA
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-telephone-fill"></i>
+                <div>
+                  <a href="tel:+1234567890">+1 (234) 567-890</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-envelope-fill"></i>
+                <div>
+                  <a href="mailto:info@newsportal.com">info@newsportal.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-clock-fill"></i>
+                <div>
+                  <strong>Office Hours:</strong>
+                  <br />
+                  Mon - Fri: 9:00 AM - 5:00 PM
+                </div>
+              </div>
+  
+              <hr class="my-3 contact-details-hr" />
+              <h4 class="mb-1 text-center contact-follow-title">Follow Us</h4>
+              <div class="social-links-contact text-center">
+                <a href="#" class="text-decoration-none me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-decoration-none me-3"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="text-decoration-none me-3"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-decoration-none"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock content %}
+
+
