@@ -1,9 +1,13 @@
+from django.urls import reverse_lazy
 from django.utils import timezone
 from datetime import timedelta
 
 from django.views.generic import TemplateView, ListView, DetailView
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from newspaper.forms import ContactForm
+from newspaper.models import Advertisement, Contact, OurTeam, Post
 
-from newspaper.models import Advertisement, OurTeam, Post
 
 class SidebarMixin:
 
@@ -97,3 +101,17 @@ class AboutView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["our_teams"] = OurTeam.objects.all()
         return context
+     
+class ContactCreateView(SuccessMessageMixin, CreateView):
+    model = Contact
+    template_name = "newsportal/contact.html"
+    form_class = ContactForm
+    succes_url = reverse_lazy("contact")
+    success_message = "Your message has been sent successfully"
+
+    def form_invalid(self, form):
+        messages.error(
+            self.request,
+            "There was an error sending yout message. Please check the form.",
+        )
+        return super().form_invalid(form)
