@@ -90,7 +90,7 @@ class PostDetailView(SidebarMixin, DetailView):
          return context
         
 class AboutView(TemplateView):
-     template_name = "newsportal.about.html"
+     template_name = "newsportal/about.html"
 
 
      def get_context_data(self, **kwargs):
