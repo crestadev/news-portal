@@ -13,22 +13,23 @@
           <div class="col-lg-7">
             <div class="contact-form-section">
               <h3 class="mb-4 contact-form-title">Send Us a Message</h3>
-              <form>
+              <form method="post" action="">
+                {% csrf_token %}
                 <div class="mb-3">
                   <label for="contactName" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="contactName" required />
+                  <input name="name" type="text" class="form-control" id="contactName" required />
                 </div>
                 <div class="mb-3">
                   <label for="contactEmail" class="form-label">Your Email</label>
-                  <input type="email" class="form-control" id="contactEmail" required />
+                  <input name="email" type="email" class="form-control" id="contactEmail" required />
                 </div>
                 <div class="mb-3">
                   <label for="contactSubject" class="form-label">Subject</label>
-                  <input type="text" class="form-control" id="contactSubject" />
+                  <input name="subject" type="text" class="form-control" id="contactSubject" />
                 </div>
                 <div class="mb-3">
                   <label for="contactMessage" class="form-label">Message</label>
-                  <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                  <textarea name="message" class="form-control" id="contactMessage" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-success btn-lg">Send Message</button>
               </form>
