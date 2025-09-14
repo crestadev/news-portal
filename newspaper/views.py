@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from django.views.generic import TemplateView, ListView, DetailView
 
-from newspaper.models import Advertisement, Post
+from newspaper.models import Advertisement, OurTeam, Post
 
 class SidebarMixin:
 
@@ -91,3 +91,9 @@ class PostDetailView(SidebarMixin, DetailView):
         
 class AboutView(TemplateView):
      template_name = "newsportal.about.html"
+
+
+     def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["our_teams"] = OurTeam.objects.all()
+        return context
