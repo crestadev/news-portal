@@ -11,7 +11,7 @@
                 <div class="card h-100 shadow-sm list-item-card">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="category.html"><i class="{{ category.icon }}"></i>{{ category.name|title }}</a></h5>
+                            <a href="{% url 'post-by-category' category.pk %}""><i class="{{ category.icon }}"></i>{{ category.name|title }}</a></h5>
                         <p class="card-text">{{ category.description }}</p>
                     </div>
                 </div>

@@ -140,3 +140,4 @@ class PostByCategoryView(SidebarMixin, ListView):
             category__id=self.kwargs["category_id"],
         ).order_by("-published_at")
         return query
+    
