@@ -1,0 +1,22 @@
+{% extends "newsportal/base.html" %}
+
+{% block content %}
+
+    <div class="container mt-4 mb-5">
+        <h1 class="mb-4 section-title"><span>All Tags</span></h1>
+
+        <div class="p-4 rounded bg-light shadow-sm tag-cloud-container">
+             <div class="article-tags">
+                {% for tag in tags %}
+
+                 <a href="#">{{ tag.name|title }}</a>
+
+                {% endfor %}
+              
+             </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+
