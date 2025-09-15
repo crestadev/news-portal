@@ -6,7 +6,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from newspaper.forms import ContactForm
-from newspaper.models import Advertisement, Contact, OurTeam, Post
+from newspaper.models import Advertisement, Contact, OurTeam, Post, Tag
 
 
 class SidebarMixin:
@@ -115,3 +115,8 @@ class ContactCreateView(SuccessMessageMixin, CreateView):
             "There was an error sending your message. Please check the form.",
         )
         return super().form_invalid(form)
+
+class TagListView(ListView):
+    model = Tag 
+    template_name = "newsportal/tags.html"
+    context_object_name="tags"
