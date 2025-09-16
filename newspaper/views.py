@@ -141,3 +141,19 @@ class PostByCategoryView(SidebarMixin, ListView):
         ).order_by("-published_at")
         return query
     
+
+class PostByTagView(SidebarMixin, ListView):
+    model = Post
+    template_name = "newsportal/list/list.html"
+    context_object_name = "posts"
+    paginate_by = 1
+
+    
+    def get_queryset(self):
+        query = super().get_queryset()
+        query = query.filter(
+            published_at__isnull=False,
+            status="active",
+            tag__id=self.kwargs("tag_id"),
+        ).order_by("-published_at")
+        return query
