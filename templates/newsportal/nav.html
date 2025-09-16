@@ -27,18 +27,11 @@
             data-bs-toggle="dropdown"
             aria-expanded="false">Categories</a>
         <ul class="dropdown-menu">
+         {% for category in categories %}
             <li>
-            <a class="dropdown-item" href="category.html">Politics</a>
+            <a class="dropdown-item" href="{% url 'post-by-categort' category.pk%}">{{ category.name }}</a>
             </li>
-            <li>
-            <a class="dropdown-item" href="category.html">Sports</a>
-            </li>
-            <li>
-            <a class="dropdown-item" href="category.html">Technology</a>
-            </li>
-            <li>
-            <a class="dropdown-item" href="category.html">Entertainment</a>
-            </li>
+         {% endfor %}
             <li>
             <hr class="dropdown-divider" />
             </li>
