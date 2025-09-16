@@ -154,6 +154,6 @@ class PostByTagView(SidebarMixin, ListView):
         query = query.filter(
             published_at__isnull=False,
             status="active",
-            tag__id=self.kwargs("tag_id"),
+            tag__id=self.kwargs["tag_id"],
         ).order_by("-published_at")
         return query
