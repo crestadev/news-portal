@@ -75,10 +75,7 @@
     <div class="navbar-nav ms-auto d-flex align-items-center">
         {% if user.is_authenticated %}
             <span class="navbar-text me-3">Welcome, {{ user.username }}!</span>
-            {% if user.is_staff %}
-                <a href="{% url 'admin-post-list' %}"
-                    class="btn btn-outline-primary btn-sm me-3">Dashboard</a>
-            {% endif %}
+
             <form method="post" action="{% url 'accounts:logout' %}" class="d-inline">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-outline-secondary btn-sm">Logout</button>
@@ -86,7 +83,7 @@
         {% else %}
             <a href="{% url 'accounts:login' %}"
                 class="btn btn-outline-success btn-sm me-2">Login</a>
-            <a href="{% url 'accounts:register' %}" class="btn btn-success btn-sm">Register</a>
+            <a href="#" class="btn btn-success btn-sm">Register</a>
         {% endif %}
         </div>
     </div>
