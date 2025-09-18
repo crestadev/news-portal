@@ -5,10 +5,13 @@
 
     {% if request.user.is_authenticated %}
 
-    <form>
+    <form method="post" action="">
+      {% csrf_token %}
+      <input type="hidden" name="post" value="{{ post.pk }}" />
       <div class="mb-3">
         <label for="commentText" class="form-label">Leave a Comment</label>
         <textarea class="form-control"
+                  name="content"
                   id="commentText"
                   rows="4"
                   placeholder="Write your comment here..."></textarea>

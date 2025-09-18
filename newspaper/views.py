@@ -5,7 +5,7 @@ from datetime import timedelta
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from newspaper.forms import ContactForm
+from newspaper.forms import CommentForm, ContactForm
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -72,6 +72,7 @@ class PostDetailView(SidebarMixin, FormMixin, DetailView):
     model = Post
     template_name = "newsportal/detail/detail.html"
     context_object_name = "post"
+    form_class = CommentForm
 
     def get_queryset(self):
         query = super().get_queryset() 
