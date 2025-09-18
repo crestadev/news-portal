@@ -14,5 +14,8 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
 
-            return redirect("accounts:login")
+            login(request, user)
+            return redirect("home")
+
+           # return redirect("accounts:login")
         return render(request, "registration/register.html", {"form": form})

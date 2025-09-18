@@ -2,7 +2,9 @@
     <span>User Comments (3)</span>
   </h3>
   <div class="card p-4 shadow-sm mb-4">
-    <!-- Comment Form -->
+
+    {% if request.user.is_authenticated %}
+
     <form>
       <div class="mb-3">
         <label for="commentText" class="form-label">Leave a Comment</label>
@@ -13,4 +15,5 @@
       </div>
       <button type="submit" class="btn btn-success">Post Comment</button>
     </form>
+    {% endif %}
   </div>
