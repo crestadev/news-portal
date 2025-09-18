@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth import login
 from django.views import View
 from .forms import RegistrationForm

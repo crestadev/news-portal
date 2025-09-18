@@ -83,7 +83,7 @@
         {% else %}
             <a href="{% url 'accounts:login' %}"
                 class="btn btn-outline-success btn-sm me-2">Login</a>
-            <a href="#" class="btn btn-success btn-sm">Register</a>
+            <a href="{% url 'accounts:register' %}" class="btn btn-success btn-sm">Register</a>
         {% endif %}
         </div>
     </div>
