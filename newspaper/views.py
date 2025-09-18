@@ -1,4 +1,4 @@
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from datetime import timedelta
 
@@ -6,6 +6,9 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from newspaper.forms import ContactForm
+from django.views.generic.edit import FormMixin
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from newspaper.models import Advertisement, Category, Contact, OurTeam, Post, Tag
 
 
@@ -65,7 +68,7 @@ class PostListView(SidebarMixin, ListView):
     
 
     
-class PostDetailView(SidebarMixin, DetailView):
+class PostDetailView(SidebarMixin, FormMixin, DetailView):
     model = Post
     template_name = "newsportal/detail/detail.html"
     context_object_name = "post"
@@ -92,6 +95,27 @@ class PostDetailView(SidebarMixin, DetailView):
               .order_by("-published_at", "-views_count")[:2]
          )
          return context
+    
+    def get_success_url(self):
+        return reverse("post-detail", kwargs={"pk": self.object.pk})
+    
+    @method_decorator(login_required)
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+        
+    def form_valid(self, form):
+        comment = form.save(commit=False)
+        comment.post = self.object
+        comment.user = self.request.user
+        comment.save()
+        messages.success(self.request, "Your comment has been added successfully")
+        return super().form_valid(form)
+
         
 class AboutView(TemplateView):
      template_name = "newsportal/about.html"
