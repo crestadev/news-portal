@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from datetime import timedelta
@@ -182,3 +183,35 @@ class PostByTagView(SidebarMixin, ListView):
             tag__id=self.kwargs["tag_id"],
         ).order_by("-published_at")
         return query
+    
+class NewsletterView(View):
+
+    def post(self, request):
+        is_ajax = request.headers.get("x-requested-with")
+        if is_ajax == "XMLHttpRequest":
+            form = NewsletterForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return JsonResponse(
+                    {
+                        "success": True,
+                        "mesage": "Successfully subscribed to the newsletter .",
+                    },
+                    status=201,
+                )
+            else:
+                return JsonResponse(
+                    {
+                        "success": False,
+                        "message": "Cannot subscribe to the newsletter.",
+                    },
+                    status=400,
+                )
+        else:
+            return JsonResponse(
+                {
+                    "success": False,
+                    "message": "Cannot process. Must be an AJAX XMLHttpRequest",
+                },
+                status=400,
+            )
