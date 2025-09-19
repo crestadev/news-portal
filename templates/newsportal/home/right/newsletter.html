@@ -6,14 +6,16 @@
     <span>Subscribe</span>
     </h4>
     <p>Get the latest news delivered straight to your inbox.</p>
-    <form>
-    <div class="mb-3">
-        <label for="newsletterEmail" class="form-label visually-hidden">Email address</label>
-        <input type="email"
-            class="form-control"
-            id="newsletterEmail"
-            placeholder="Enter your email" />
-    </div>
-    <button type="submit" class="btn btn-success w-100">Subscribe</button>
+    <form method="post" action={% url 'newsletter' %}>
+        {% csrf_token %}        
+        <div class="mb-3">
+            <label for="newsletterEmail" class="form-label visually-hidden">Email address</label>
+            <input type="email"
+            name=]"email"
+                class="form-control"
+                id="newsletterEmail"
+                placeholder="Enter your email" />
+        </div>
+        <button type="submit" class="btn btn-success w-100">Subscribe</button>
     </form>
 </div>

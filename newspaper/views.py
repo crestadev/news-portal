@@ -3,10 +3,10 @@ from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from datetime import timedelta
 
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, View
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from newspaper.forms import CommentForm, ContactForm
+from newspaper.forms import CommentForm, ContactForm, NewsletterForm
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
