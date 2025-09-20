@@ -11,6 +11,8 @@ from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from newspaper.models import Advertisement, Category, Contact, OurTeam, Post, Tag
+from django.core.paginator import PageNotAnInteger, Paginator
+from django.db.models import Q
 
 
 class SidebarMixin:
@@ -215,3 +217,39 @@ class NewsletterView(View):
                 },
                 status=400,
             )
+        
+class PostSearch(View):
+    template_name = "newsportal/list/list.html"
+
+    def get(self, request):
+        query = request.GET.get("query", "")
+        post_list = Post.objects.filter(
+            (~Q(title__icontains=query) | Q(content__icontains=query)) &
+            Q(status="active") &
+            Q(published_at__isnull=False)
+        ).order_by("-published_at")
+
+        page = request.GET.get("page", 1)
+        paginate_by = 1
+        paginator = Paginator(post_list, paginate_by)
+        try:
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+
+        popular_posts = Post.objects.filter(
+            published_at__isnull=False, status="active"
+        ).order_by("-published_at")[:5]
+        advertisement = Advertisement.objects.all().order_by("-created_at").first()
+
+        return render(
+            request,
+            self.template_name,
+            {
+                "page_obj": posts,
+                "query": query,
+                "popular_posts": popular_posts,
+                "advertisement": advertisement
+            }
+        )
+

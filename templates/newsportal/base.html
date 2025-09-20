@@ -34,40 +34,45 @@
     <script src="{% static 'js/script.js' %}"></script>
     <script>
       $("#newsletter_side_form").submit(function(e){
-        e.preventDefault();
-        const serializedData = $(this).serialize();
-        const csrftoken = getCookie('csrftoken');
-    
+        e.preventDefault()
+        let serializedData = $(this).serialize()
+
         $.ajax({
-            type: "POST",
-            url: "{% url 'newsletter' %}",
-            data: serializedData,
-            headers: {
-                "X-Requested-With": "XMLHttpRequest",
-                "X-CSRFToken": csrftoken
-            },
-            success: function(response) {
-                console.log("Success", response);
-                $("#newsletter_side_message").append(`
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        ${response.message}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                `);
-                setTimeout(() => $(".alert").alert('close'), 2000);
-            },
-            error: function(response) {
-                console.log("Failure", response);
-                $("#newsletter_side_message").append(`
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        ${response.responseJSON.message}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                `);
-            }
-        });
-    });
-    
+          type: "POST",
+          url: "{% url 'newsletter' %}",
+          data: serializedData,
+
+          success: function(response) {
+            console.log("Success", response)
+            $("#newsletter_side_message").append(
+              `
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                ${response.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+              `
+            )
+         
+          setTimeout( function() {
+            $(".alert").alert('close')
+          }, 2000)
+           },
+
+          error: function(response) {
+            console.log("Failure", response)
+
+            $("#newsletter_side_message").append(
+              `
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                ${response.responseJSON.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+              `
+          }
+        })
+      })
     </script>
   </body>
 </html>
