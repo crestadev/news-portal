@@ -53,8 +53,9 @@
         <a class="nav-link" href="#newsletter-section">Newsletter</a>
         </li>
     </ul>
-    <form class="d-flex me-3" role="search">
+    <form class="d-flex me-3" role="search" method="get" action={%url 'search' %}>
         <input class="form-control form-control-sm me-2"
+                name="query"
                 type="search"
                 placeholder="Search..."
                 aria-label="Search" />
