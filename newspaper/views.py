@@ -195,7 +195,7 @@ class NewsletterView(View):
                 return JsonResponse(
                     {
                         "success": True,
-                        "mesage": "Successfully subscribed to the newsletter .",
+                        "message": "Successfully subscribed to the newsletter .",
                     },
                     status=201,
                 )
@@ -203,7 +203,7 @@ class NewsletterView(View):
                 return JsonResponse(
                     {
                         "success": False,
-                        "message": "Cannot subscribe to the newsletter.",
+                        "message":"Cannot subscribe to the newsletter.",
                     },
                     status=400,
                 )
