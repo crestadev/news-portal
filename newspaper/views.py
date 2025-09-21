@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from datetime import timedelta
@@ -224,7 +225,7 @@ class PostSearch(View):
     def get(self, request):
         query = request.GET.get("query", "")
         post_list = Post.objects.filter(
-            (~Q(title__icontains=query) | Q(content__icontains=query)) &
+            (Q(title__icontains=query) | Q(content__icontains=query)) &
             Q(status="active") &
             Q(published_at__isnull=False)
         ).order_by("-published_at")
@@ -250,6 +251,6 @@ class PostSearch(View):
                 "query": query,
                 "popular_posts": popular_posts,
                 "advertisement": advertisement
-            }
+            },
         )
 
