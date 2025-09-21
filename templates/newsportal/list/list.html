@@ -28,6 +28,15 @@
 {% endblock content %}
 
 {% block js %}
+  <script>
+      $(".page-link").click(function(e) {
+        e.preventDefault();
+        let url = new URL(window.location.href);
+        let searchParams =  (url.searchParams.get("query") || "");
+        url.search = $(this).attr("href") + "&query=" + searchParams;
+        window.location.href = url;
+      });
+  </script>
 
 {% endblock js %}
 
