@@ -8,7 +8,7 @@
     <div class="card-body">
     <h2 class="card-title fw-bold">Featured Story Headline: Major Event Unfolds</h2>
     <p class="card-text">
-        {{ featured_post.content|truncatechars:150 }}
+        {{ featured_post.content|striptags|truncatechars:150 }}
     </p>
     <a href="article.html" class="btn btn-success">Read More <i class="bi bi-arrow-right-short"></i></a>
     <p class="card-text mt-2">
