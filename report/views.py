@@ -1,3 +1,4 @@
+import csv
 from django.shortcuts import render
 
 from django.contrib.auth import get_user_model
@@ -23,3 +24,11 @@ class UserReportView(View):
     def get(self, request):
         response = HttpResponse(content_type="text/csv")
         response["Content-Disposition"] = "attachment; filename=users.csv"
+
+        users = User.objects.all().only(*COLUMNS),values(*COLUMNS)
+
+        writer = csv.DictWriter(response, fieldnames=COLUMNS)
+        writer.writeheader()
+        writer.writerows(users)
+
+        return response
