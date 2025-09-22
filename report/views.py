@@ -25,7 +25,7 @@ class UserReportView(View):
         response = HttpResponse(content_type="text/csv")
         response["Content-Disposition"] = "attachment; filename=users.csv"
 
-        users = User.objects.all().only(*COLUMNS),values(*COLUMNS)
+        users = User.objects.all().only(*COLUMNS).values(*COLUMNS)
 
         writer = csv.DictWriter(response, fieldnames=COLUMNS)
         writer.writeheader()

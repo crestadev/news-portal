@@ -82,6 +82,10 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-outline-secondary btn-sm">Logout</button>
             </form>
+            {% if user.is_staff %}
+            <a href="{% url 'report:users' %}"
+            class="btn btn-outline-success btn-sm me-2">Report</a>
+            {% endif %}
         {% else %}
             <a href="{% url 'accounts:login' %}"
                 class="btn btn-outline-success btn-sm me-2">Login</a>
