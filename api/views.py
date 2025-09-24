@@ -1,7 +1,8 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
-from api.serializers import GroupSerializer, UserSerializer
+from api.serializers import GroupSerializer, TagSerializer, UserSerializer
+from newspaper.models import Tag
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -19,4 +20,11 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAdminUser]
 
+
+
+class TagViewSet(viewsets.ModelViewSet):
+
+    queryset = Tag.objects.all().order_by('name')
+    serializer_class = TagSerializer
+    permission_classes = [permissions.IsAdminUser]
 
