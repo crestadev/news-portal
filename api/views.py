@@ -1,9 +1,9 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
-from api.serializers import CategorySerializer, GroupSerializer, TagSerializer, UserSerializer
-from newspaper.models import Category, Tag
-
+from api.serializers import CategorySerializer, GroupSerializer, PostSerializer, TagSerializer, UserSerializer
+from newspaper.models import Category, Post, Tag
+from django.db.models import Q
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -41,6 +41,32 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
     permission_classes = [permissions.IsAdminUser]
 
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            return [permissions.AllowAny()]
+        
+        return super().get_permissions()
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all().order_by('name')
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def get_queryset(self):
+        query_set = super().get_queryset()
+        if self.action in ["list", "retrieve"]:
+            queryset = queryset.filter(status="active", published_at__isnull=False)
+
+            search_term = self.request.query_params.get("search", None)
+            if search_term:
+
+                queryset= queryset.filter(
+                    Q(title__icontains=search_term) | Q(content__icontains=search_term)
+                )
+
+        return queryset
+    
+    
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
             return [permissions.AllowAny()]
