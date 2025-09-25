@@ -35,4 +35,15 @@ class TagViewSet(viewsets.ModelViewSet):
         return super().get_permissions()
 
 
+class CategoryViewSet(viewsets.ModelViewSet):
+
+    queryset = Category.objects.all().order_by('name')
+    serializer_class = CategorySerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            return [permissions.AllowAny()]
+        
+        return super().get_permissions()
 
