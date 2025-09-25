@@ -1,7 +1,7 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import serializers
 
-from newspaper.models import Category, Tag
+from newspaper.models import Category, Post, Tag
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -27,5 +27,31 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ["id", "name", "icon", "description"]
+        fields = ["id", "name", "icon", "description"]\
+        
+
+
+class PostSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Post
+        fields = [
+            "id",
+            "title",
+            "content",
+            "featured_image",
+            "status",
+            "tag",
+            "category",
+
+            "author",
+            "views_count",
+            "published_at",
+        ]
+        extra_kwargs = {
+            "author": {"read_only": True},
+            "views_count": {"read_only": True},
+            "published_at": {"read_only": True},
+
+        }
          
