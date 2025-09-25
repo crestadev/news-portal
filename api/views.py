@@ -1,8 +1,8 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
-from api.serializers import GroupSerializer, TagSerializer, UserSerializer
-from newspaper.models import Tag
+from api.serializers import CategorySerializer, GroupSerializer, TagSerializer, UserSerializer
+from newspaper.models import Category, Tag
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -33,3 +33,6 @@ class TagViewSet(viewsets.ModelViewSet):
             return [permissions.AllowAny()]
         
         return super().get_permissions()
+
+
+

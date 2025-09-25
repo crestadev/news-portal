@@ -1,7 +1,7 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import serializers
 
-from newspaper.models import Tag
+from newspaper.models import Category, Tag
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -21,4 +21,11 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ["id", "name"]
+
         
+class CategorySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = ["id", "name", "icon", "description"]
+         
