@@ -5,6 +5,9 @@ from api.serializers import CategorySerializer, GroupSerializer, PostSerializer,
 from newspaper.models import Category, Post, Tag
 from django.db.models import Q
 from rest_framework.response import Response
+from rest_framework.generics import ListAPIView
+
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -80,3 +83,19 @@ class PostViewSet(viewsets.ModelViewSet):
         instance.save(update_fields=["views_count"])
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
+    
+class PostListByCategoryView(ListAPIView):
+    queryset = Post.objects.al()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(
+            status="active",
+            published_at__isnull=False
+            category=self.kwargs["category_id"],
+        )    
+        return queryset
+    
