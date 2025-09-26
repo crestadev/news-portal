@@ -4,6 +4,7 @@ from rest_framework import permissions, viewsets
 from api.serializers import CategorySerializer, GroupSerializer, PostSerializer, TagSerializer, UserSerializer
 from newspaper.models import Category, Post, Tag
 from django.db.models import Q
+from rest_framework.response import Response
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -72,4 +73,10 @@ class PostViewSet(viewsets.ModelViewSet):
             return [permissions.AllowAny()]
         
         return super().get_permissions()
-
+    
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.views_count +=1
+        instance.save(update_fields=["views_count"])
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
