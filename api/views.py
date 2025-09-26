@@ -94,8 +94,23 @@ class PostListByCategoryView(ListAPIView):
         queryset = super().get_queryset()
         queryset = queryset.filter(
             status="active",
-            published_at__isnull=False
+            published_at__isnull=False,
             category=self.kwargs["category_id"],
+        )    
+        return queryset
+    
+class PostListByTagView(ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(
+            status="active",
+            published_at__isnull=False,
+            tag=self.kwargs["tag_id"],
         )    
         return queryset
     
