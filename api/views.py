@@ -114,3 +114,7 @@ class PostListByTagView(ListAPIView):
         )    
         return queryset
     
+class DraftListView(ListAPIView):
+    queryset = Post.objects.filter(published_at__isnull=True)
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAdminUser]
