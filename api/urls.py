@@ -19,7 +19,7 @@ urlpatterns = [
     path("draft-list/", views.DraftListView.as_view(), name="draft-list-api"),
     path("draft-detail/", views.DraftDetailView.as_view(), name="draft-detail-api"),
     path("post-publish/", views.PostPublishViewSet.as_view(), name="post-pubish-api"),
-
+    path("post/<int:post_id>/comments/", views.CommentListCreateAPIView.as_view(), name="comment-list-create-api"),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 ]
