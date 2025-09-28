@@ -1,6 +1,7 @@
 from django.contrib.auth.models import Group, User
-from rest_framework import permissions, viewsets
+from rest_framework import permissions, viewsets, exceptions
 
+from api.permissions import IsStaffOrOwner
 from api.serializers import CategorySerializer, CommentSerializer, GroupSerializer, PostPublishSerializer, PostSerializer, TagSerializer, UserSerializer
 from newspaper.models import Category, Comment, Post, Tag
 from django.db.models import Q
