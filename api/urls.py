@@ -9,8 +9,7 @@ router.register(r'groups', views.GroupViewSet)
 router.register(r"tags", views.TagViewSet)
 router.register(r"categories", views.CategoryViewSet)
 router.register(r"posts", views.PostViewSet)
-router.register[r"newsletters", views.NewsletterViewSet]
-
+router.register(r"newsletters", views.NewsletterViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path("post-by-category/<int:category_id>/",views.PostListByCategoryView.as_view(),name="post-list-by-category-api"),

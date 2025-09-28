@@ -55,7 +55,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
         return super().get_permissions()
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all().order_by('name')
+    queryset = Post.objects.all().order_by("-published_at")
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAdminUser]
 
@@ -88,7 +88,7 @@ class PostViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
     
 class PostListByCategoryView(ListAPIView):
-    queryset = Post.objects.al()
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.AllowAny]
 
