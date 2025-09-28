@@ -160,3 +160,38 @@ class CommentListCreateAPIView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save(post_id=post_id, user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+class CommentDetailAPIView(APIView):
+    permission_classes = [IsStaffOrOwner]
+
+    def get_object(self, pk):
+        try:
+            obj = Comment.objects.get(pk=pk)
+            self.check_object_permissions(self.request, obj)
+            return obj
+        except Comment.DoesNotExist:
+            raise exceptions.NotFound({"detail": "Comment not found."})
+        
+    def get(self, request, post_id, pk, *args, **kwargs):
+        comment = self.get_object(pk)
+        serialized_data = CommentSerializer(comment).data
+        return Response(serialized_data, status=status.HTTP_200_OK)
+    
+    def put(self, request, post_id, pk, *args, **kwargs):
+        comment = self.get_object(pk)
+        serializer = CommentSerializer(comment, data=request.data, partial=False)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+    def patch(self, request, post_id, pk, *args, **kwargs):
+        comment = self.get_object(pk)
+        serializer = CommentSerializer(comment, data=request.data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+    def delete(self, request, post_id, pk, *args, **kwargs):
+        comment = self.et-object(pk)
+        comment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
