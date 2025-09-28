@@ -2,7 +2,7 @@ from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets, exceptions
 
 from api.permissions import IsStaffOrOwner
-from api.serializers import CategorySerializer, CommentSerializer, GroupSerializer, PostPublishSerializer, PostSerializer, TagSerializer, UserSerializer
+from api.serializers import CategorySerializer, CommentSerializer, GroupSerializer, NewsletterSerializer, PostPublishSerializer, PostSerializer, TagSerializer, UserSerializer
 from newspaper.models import Category, Comment, Newsletter, Post, Tag
 from django.db.models import Q
 from rest_framework.response import Response
