@@ -3,12 +3,12 @@ from rest_framework import permissions, viewsets, exceptions
 
 from api.permissions import IsStaffOrOwner
 from api.serializers import CategorySerializer, CommentSerializer, GroupSerializer, PostPublishSerializer, PostSerializer, TagSerializer, UserSerializer
-from newspaper.models import Category, Comment, Post, Tag
+from newspaper.models import Category, Comment, Newsletter, Post, Tag
 from django.db.models import Q
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.views import APIView
-from rest_framework import status
+from rest_framework import status, exceptions
 from django.utils import timezone
 
 
@@ -193,6 +193,20 @@ class CommentDetailAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         
     def delete(self, request, post_id, pk, *args, **kwargs):
-        comment = self.et-object(pk)
+        comment = self.get_object(pk)
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+class NewsletterViewSet(viewsets.ModelViewSet):
+    queryset= Newsletter.objects.all()
+    serializer_class = NewsletterSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve", "destroy"]:
+            return [permissions.IsAdminUser()]
+        return super().get_permissions()
+    
+    def update(self, request, *args, **kwargs):
+        raise exceptions.MethodNotAllowed(request.method)
