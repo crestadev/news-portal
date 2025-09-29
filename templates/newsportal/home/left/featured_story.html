@@ -10,7 +10,7 @@
     <p class="card-text">
         {{ featured_post.content|striptags|truncatechars:150 }}
     </p>
-    <a href="article.html" class="btn btn-success">Read More <i class="bi bi-arrow-right-short"></i></a>
+    <a href="{% url 'post-detail' featured_post.pk %}" class="btn btn-success">Read More <i class="bi bi-arrow-right-short"></i></a>
     <p class="card-text mt-2">
         <small class="text-muted">Published: {{ featured_post.published_at|date:"F j, Y"}}</small>
     </p>
