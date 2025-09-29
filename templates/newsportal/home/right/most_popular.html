@@ -13,7 +13,7 @@
             height="70"
             alt="Popular 1" />
         <div>
-            <a href="article.html" class="popular-title-link">{{ post.title }}</a>
+            <a href="{% url 'post-detail' post.pk %}" class="popular-title-link">{{ post.title }}</a>
             <p class="popular-description">{{ post.conten|truncatechars:100 }}</p>
         </div>
     </li>
