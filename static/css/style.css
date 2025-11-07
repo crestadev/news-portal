@@ -996,12 +996,11 @@ body {
     box-shadow: var(--shadow);
     opacity: 0.9;
 }
-/* Removed extra closing brace */
 
 
 
 /* Sticky Sidebar Offset */
 .sticky-sidebar-offset {
-    top: 6rem; /* Adjust based on navbar height */
+    top: 6rem; 
 }
 
